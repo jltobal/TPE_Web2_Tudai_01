@@ -10,14 +10,10 @@
 <body>
   <nav>
       <a href='home'>home</a>
+      <a href='modelos'>Lista completa</a>
+      <a href='registrar'>Registrarse</a>}
+      <a href='login'>LogIn</a>  {*Hacer formulario de login y persistencia*}
       <!--FALTA BARRA DE NAVEGACION-->
   </nav>
 
-  {foreach from=$impresora item=$info}
-<tr>
-    <td>{$info->descripcion}</td>
-    <td>{$info->tipo}</td>
-   
-</tr>
-
-{/foreach}
+  <h2> HEADER </h2><br>

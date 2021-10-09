@@ -14,14 +14,15 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 $controlador = new Controller(); //creo un objeto o instacia de la clase Controller
+$all = '1';
 
 
 switch ($params[0]) {
     case 'home':
-        $controlador->showModelos('home'); //mostramos 6.
+        $controlador->showHome(); //mostramos 6.
         break;
     case 'modelos':
-        $controlador->showModelos('all');  //mostrar todo.
+        $controlador->showModelos();  //mostrar todo.
         break;
     case 'detalle':
         $controlador->showDetalle($params[1]);  //muestra descripcion.
@@ -33,6 +34,6 @@ switch ($params[0]) {
         $controlador->administrarImpresoras();  //Agregar, editar, borrar.
         break;
     default:
-        $controlador->showModelos('home');;
+        $controlador->showModelos();
         break;
 }

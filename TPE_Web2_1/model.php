@@ -11,21 +11,22 @@ class model
         //Llama al servidor y me crea un objeto con la respuesta.
     }
 
-    function obtenerImpresoras($parametro)
+    function obtenerImpresoraID($parametro)
     {
-      /*  if ($parametro != 0) {
-            $query = $this->db_impresoras->prepare('SELECT * FROM impresora JOIN modelo WHERE modelos =' . $parametro);
-            $query += $this->db_impresoras->prepare('SELECT * FROM impresora JOIN modelo WHERE tipo =' . $parametro);
-        } else if ($parametro >= 0) { //id numerico*/
-            $query = $this->db_impresoras->prepare('SELECT * FROM impresora WHERE id_impresora=?');
-            $query->execute([$parametro]);/*
-        } else {
-            $query = $this->db_impresoras->prepare('SELECT * FROM impresora JOIN modelo ON impresora.id_modelo_fk=modelo.id_modelo');
-            $query->execute();
-        }*/
-        // 2. obtengo la respuesta de la DB
+        $query = $this->db_impresoras->prepare('SELECT * FROM impresora WHERE id_impresora=?');
+        $query->execute([$parametro]);
         $impresoras = $query->fetchAll(PDO::FETCH_OBJ); // obtengo un arreglo con TODAS las impres
         return $impresoras;
     }
 
+    function obtenerTodo()
+    {
+        $query = $this->db_impresoras->prepare('SELECT * FROM impresora JOIN modelo ON impresora.id_modelo_fk=modelo.id_modelo');
+        $query->execute();
+        $impresoras = $query->fetchAll(PDO::FETCH_OBJ); // obtengo un arreglo con TODAS las impres
+        return $impresoras;
+    }
+    function filtrarImpresora($filtro){
+        
+    }
 }

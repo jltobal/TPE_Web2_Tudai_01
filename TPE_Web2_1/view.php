@@ -13,21 +13,23 @@ class view
         $this->smarty = new Smarty();
     }
 
-    public function mostrarImpresoras($impresoras, $case)
+    public function mostrarImpresoras($impresoras) //Muestra todo
     {
-        if ($case == 'home') {
-            //mOSTRAR 6
-        } else if ($case == 'All') {
-            $this->smarty->assign('impresora', $impresoras);
-            $this->smarty->display('templates/header.tpl');
-        }
+        $this->smarty->assign('impresora', $impresoras);
+        $this->smarty->display('templates/listadomodelos.tpl');
     }
 
-    public function mostrarDetalles($detalles)
+    public function mostrarHome($impresoras)  //Muestra Home
+    {
+        $this->smarty->assign('impresora', $impresoras);
+        $this->smarty->display('templates/home.tpl');
+    }
+
+    public function mostrarDetalles($detalles)  //Arreglar mostrar detalles 
     {
         $this->smarty->assign('titulo', 'Detalles');
         $this->smarty->assign('impresora', $detalles);
-        $this->smarty->display('templates/header.tpl');
+        $this->smarty->display('templates/detalles.tpl');
     }
 
     public function mostrarFiltro($filtro)

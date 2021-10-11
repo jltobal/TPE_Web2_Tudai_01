@@ -42,22 +42,18 @@ class controller
         $this->view->renderAdmin($impresoras);                 //agregar, borrar, editar.
     }
 
-    function showLogin(){
-
-    }
-
     function showRegister()
     {
         $this->view->renderRegister();
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
             $userEmail = $_POST['email'];
             $userPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
-            $this->model->signIn();
+            $this->model->registerUser($userEmail, $userPassword);
         }
     }
 
     function showCategorias()
     {
-        
+
     }
 }

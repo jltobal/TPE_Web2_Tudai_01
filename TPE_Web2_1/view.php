@@ -34,6 +34,9 @@ class view
 
     public function renderFilter($filtro)
     {
+        $this->smarty->assign('titulo', 'Filtrar');
+     #   $this->smarty->assign('impresora', $impresoras);
+        $this->smarty->display('templates/filtrar.tpl');
     }
 
     public function renderAdmin()
@@ -41,6 +44,15 @@ class view
     }
 
     public function RenderRegister(){
+
+    }
+
+    public function renderLogin($error){
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('templates/login.tpl');
+    }
+
+    public function renderLogout(){
         
     }
 }

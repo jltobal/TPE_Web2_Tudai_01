@@ -1,3 +1,5 @@
+{include file = 'header.tpl'}
+
 <a href='filtrar'>Filtrar</a>
 <table  class="list">
 
@@ -14,3 +16,4 @@
 
  </tbody>   
  </table>
+{include file = 'footer.tpl'}

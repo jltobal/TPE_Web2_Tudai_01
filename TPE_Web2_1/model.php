@@ -30,8 +30,18 @@ class model
     function getPtinterByFilter($filtro){        
     }
 
-    function SignIn(){
-        
+
+    function getUser($email) {
+        $query = $this->db->prepare('SELECT * FROM usuarios WHERE email = ?'); //Busco user en la BDD.
+        $query->execute([$email]);
+        $user = $query->fetch(PDO::FETCH_OBJ);
+        return $user;
+      }
+
+    function registerUser($userEmail,$userPassword){
+        $query = $this->db->prepare('INSERT INTO usuarios (email, password) VALUES (? , ?)');  //Guardo en la BDD.
+        $query->execute([$userEmail,$userPassword]);
+        echo "Registro exitoso";
     }
     
 }

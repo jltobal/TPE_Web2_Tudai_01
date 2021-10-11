@@ -1,6 +1,7 @@
 <?php
 
 require_once 'controller.php';
+require_once 'authcontroller.php';
 require_once 'model.php';
 require_once 'view.php';
 
@@ -14,9 +15,8 @@ if (!empty($_GET['action'])) {
 }
 
 $params = explode('/', $action);
-$controlador = new Controller(); //creo un objeto o instacia de la clase Controller
-$all = '1';
-
+$authController = new AuthController();
+$controlador = new controller(); //creo un objeto o instacia de la clase Controller
 
 switch ($params[0]) {
     case 'home':
@@ -31,15 +31,16 @@ switch ($params[0]) {
     case 'filtrar':
         $controlador->showFilter($params[1]);  //filtrar por categoria
         break;
-    case 'administrar':
-        $controlador->showAdmin();  //Administracion (Agregar, eliminar, editar, etc.)
-        break;
     case 'login':
-        $authController = new authcontroller();
-        $authcontroller->showLogin();
+        $authController = new AuthController();
+        $authController->showLogin();
+        break;
+    case 'verify':
+        $authController = new AuthController();
+        $authController->login();
         break;
     case 'logout':
-        $authController = new authcontroller();
+        $authController = new AuthController();
         $authController->showLogout();
         break;
     case 'registro':
@@ -47,6 +48,15 @@ switch ($params[0]) {
         break;
     case 'categorias':
         $controlador->showCategorias();
+        break;
+    case 'administrar':
+        $controlador->showAdmin();  //Administracion (Agregar, eliminar, editar, etc.)
+        break;
+    case 'agregar':
+        $controlador->addPrinter();
+        break;
+    case 'eliminar':
+        $controlador->deletePrinter();
         break;
     default:
         $controlador->showHome();  //Por defecto va al Home.

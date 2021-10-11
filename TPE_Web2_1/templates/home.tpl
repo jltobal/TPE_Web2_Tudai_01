@@ -3,9 +3,6 @@
 <table  class="list">
 <tbody>
 
-<p>$impresora</p>
-
-
 {foreach from=$impresora item=$info} 
     <tr>
         <td>{$info->tipo}</td>

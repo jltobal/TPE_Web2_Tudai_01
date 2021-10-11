@@ -1,8 +1,8 @@
 Acceso público 
 Deben existir diferentes secciones donde se muestre el contenido dinámicamente generado desde la base de datos. Estas secciones pueden ser accedidas de manera pública, no es necesario loguearse.
 
-*Listado de ítems: Se debe poder visualizar todos los items cargados
-*1Detalle de ítem: Se debe poder navegar y visualizar cada ítem particularmente 
+*Listado de ítems: Se debe poder visualizar todos los items cargados  (Home)
+*Detalle de ítem: Se debe poder navegar y visualizar cada ítem particularmente (boton 'detalle')
 *Listado de categorías: Se debe poder visualizar un listado con todas las categorías cargadas
 *Listado de ítems x categoría: Se debe poder visualizar los ítems perteneciente a una categoría seleccionada
 

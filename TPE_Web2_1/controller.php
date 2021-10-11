@@ -12,33 +12,52 @@ class controller
         $this->model = new model();
     }
 
-    function showModelos()
-    {
-        $impresoras = $this->model->obtenerTodo(); //llamas a la base de datos.
-        $this->view->mostrarImpresoras($impresoras); //paso por parametro la canidad.
-    }
-
     function showHome()
     {
-        $impresoras = $this->model->obtenerTodo(); //llamas a la base de datos.
-        $this->view->mostrarHome($impresoras); //paso por parametro la canidad.
+        $allPrinters = $this->model->getAllPrinters(); //llamas a la base de datos.
+        $this->view->renderHome($allPrinters); //paso por parametro la canidad.
     }
 
-    function showDetalle($id)
+    function showModels()
     {
-        $detalles = $this->model->obtenerImpresoraID($id); //llamo por id a la db.
-        $this->view->mostrarDetalles($detalles);          //tipo, modelo, dpi, toner, tinta.
+        $impresoras = $this->model->getAllPrinters(); //llamas a la base de datos.
+        $this->view->renderModels($impresoras); //paso por parametro la canidad.
     }
 
-    function filtrarImpresora($filtro)
+    function showDetails($id)
     {
-        $impresoras = $this->model->filtrarImpresora($filtro); //llamo por x filtro.
-        $this->view->mostrarFiltro($impresoras);               //quiero impresoras laser color.
+        $detalles = $this->model->getPtinterByID($id); //llamo por id a la db.
+        $this->view->renderDetails($detalles);          //tipo, modelo, dpi, toner, tinta.
     }
 
-    function administrarImpresoras()
+    function showFilter($filtro)
     {
-        $impresoras = $this->model->obtenerTodo('Null');
-        $this->view->administrar($impresoras);                 //agregar, borrar, editar.
+        $impresoras = $this->model->getPtinterByFilter($filtro); //llamo por x filtro.
+        $this->view->renderFilter($impresoras);               //quiero impresoras laser color.
+    }
+
+    function showAdmin()
+    {
+        $impresoras = $this->model->getAllPrinters('Null');
+        $this->view->renderAdmin($impresoras);                 //agregar, borrar, editar.
+    }
+
+    function showLogin(){
+
+    }
+
+    function showRegister()
+    {
+        $this->view->renderRegister();
+        if (!empty($_POST['email']) && !empty($_POST['password'])) {
+            $userEmail = $_POST['email'];
+            $userPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
+            $this->model->signIn();
+        }
+    }
+
+    function showCategorias()
+    {
+        
     }
 }

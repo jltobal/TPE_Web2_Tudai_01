@@ -5,6 +5,7 @@ require_once 'model.php';
 require_once 'view.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
+define('LOGIN', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/login');
 
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
@@ -22,18 +23,32 @@ switch ($params[0]) {
         $controlador->showHome(); //mostramos 6.
         break;
     case 'modelos':
-        $controlador->showModelos();  //mostrar todo.
+        $controlador->showModels();  //mostrar todo.
         break;
     case 'detalle':
-        $controlador->showDetalle($params[1]);  //muestra descripcion.
+        $controlador->showDetails($params[1]);  //muestra descripcion.
         break;
     case 'filtrar':
-        $controlador->filtrarImpresora($params[1]);  //filtro por marca o sistema.
+        $controlador->showFilter($params[1]);  //filtrar por categoria
         break;
     case 'administrar':
-        $controlador->administrarImpresoras();  //Agregar, editar, borrar.
+        $controlador->showAdmin();  //Administracion (Agregar, eliminar, editar, etc.)
+        break;
+    case 'login':
+        $authController = new authcontroller();
+        $authcontroller->showLogin();
+        break;
+    case 'logout':
+        $authController = new authcontroller();
+        $authController->showLogout();
+        break;
+    case 'registro':
+        $controlador->showRegister();
+        break;
+    case 'categorias':
+        $controlador->showCategorias();
         break;
     default:
-        $controlador->showModelos();
+        $controlador->showHome();  //Por defecto va al Home.
         break;
 }

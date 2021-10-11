@@ -13,30 +13,34 @@ class view
         $this->smarty = new Smarty();
     }
 
-    public function mostrarImpresoras($impresoras) //Muestra todo
+    public function renderHome($allPrinters)  //Muestra Home
+    {
+        $this->smarty->assign('impresora', $allPrinters);
+        $this->smarty->display('templates/home.tpl');
+    }
+
+    public function renderModels($impresoras) //Muestra todo
     {
         $this->smarty->assign('impresora', $impresoras);
         $this->smarty->display('templates/listadomodelos.tpl');
     }
 
-    public function mostrarHome($impresoras)  //Muestra Home
-    {
-        $this->smarty->assign('impresora', $impresoras);
-        $this->smarty->display('templates/home.tpl');
-    }
-
-    public function mostrarDetalles($detalles)  //Arreglar mostrar detalles 
+    public function renderDetails($detalles)  //Arreglar mostrar detalles 
     {
         $this->smarty->assign('titulo', 'Detalles');
         $this->smarty->assign('impresora', $detalles);
         $this->smarty->display('templates/detalles.tpl');
     }
 
-    public function mostrarFiltro($filtro)
+    public function renderFilter($filtro)
     {
     }
 
-    public function administrar()
+    public function renderAdmin()
     {
+    }
+
+    public function RenderRegister(){
+        
     }
 }

@@ -11,9 +11,9 @@
   <nav>
       <a href='home'>home</a>
       <a href='modelos'>Lista completa</a>
-      <a href='registrar'>Registrarse</a>}
+      <a href='registrar'>Registrarse</a>  {*Hacer formulario de Registro*}
       <a href='login'>LogIn</a>  {*Hacer formulario de login y persistencia*}
-      <!--FALTA BARRA DE NAVEGACION-->
+      <a href='administrar'>Administrar<a> {*Hacer formulario de administracion*}
   </nav>
 
   <h2> HEADER </h2><br>

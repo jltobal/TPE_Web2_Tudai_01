@@ -11,22 +11,27 @@ class model
         //Llama al servidor y me crea un objeto con la respuesta.
     }
 
-    function obtenerImpresoraID($parametro)
+    function getPtinterByID($parametro)
     {
         $query = $this->db_impresoras->prepare('SELECT * FROM impresora WHERE id_impresora=?');
         $query->execute([$parametro]);
-        $impresoras = $query->fetchAll(PDO::FETCH_OBJ); // obtengo un arreglo con TODAS las impres
+        $impresoras = $query->fetchAll(PDO::FETCH_OBJ);
         return $impresoras;
     }
 
-    function obtenerTodo()
+    function getAllPrinters()
     {
         $query = $this->db_impresoras->prepare('SELECT * FROM impresora JOIN modelo ON impresora.id_modelo_fk=modelo.id_modelo');
         $query->execute();
-        $impresoras = $query->fetchAll(PDO::FETCH_OBJ); // obtengo un arreglo con TODAS las impres
-        return $impresoras;
+        $allPrinters = $query->fetchAll(PDO::FETCH_OBJ); // obtengo un arreglo con TODAS las impresoras.
+        return $allPrinters;
     }
-    function filtrarImpresora($filtro){
+    
+    function getPtinterByFilter($filtro){        
+    }
+
+    function SignIn(){
         
     }
+    
 }

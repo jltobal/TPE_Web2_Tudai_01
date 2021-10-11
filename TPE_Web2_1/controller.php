@@ -56,4 +56,12 @@ class controller
     {
 
     }
+
+    function addPrinter(){
+
+    }
+
+    function deletePrinter(){
+        
+    }
 }

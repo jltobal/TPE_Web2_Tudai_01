@@ -43,7 +43,7 @@ switch ($params[0]) {
         $authController = new AuthController();
         $authController->showLogout();
         break;
-    case 'registro':
+    case 'registrar':
         $controlador->showRegister();
         break;
     case 'categorias':

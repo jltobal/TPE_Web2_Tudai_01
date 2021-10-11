@@ -43,8 +43,9 @@ class view
     {
     }
 
-    public function RenderRegister(){
-
+    public function renderRegister(){
+        $this->smarty->display('templates/registrar.tpl');
+        
     }
 
     public function renderLogin($error){

@@ -14,17 +14,17 @@ class AuthController
     {
         $this->model = new model();
         $this->view = new view();
-        $this->authHelper = new authHelper();
+        $this->authHelper = new AuthHelper();
     }
 
     public function showLogin()
     {
-        $this->view->renderLogin('Usuario o contraseña invalida.');  //Muestro formulario de Login.
+        $this->view->renderLogin();  //Muestro formulario de Login.
     }
 
     public function showLogout()
     {
-        $this->view->renderLogout(); //Mostrar logout.
+        $this->authHelper->logout();
     }
 
     public function login()
@@ -36,8 +36,9 @@ class AuthController
 
             if ($user && password_verify($password, $user->password)) { //Verifico si coincide el usuario y la contraseña.
                 $this->authHelper->login($user);  //creo la sesion del usuario.
+                header('LOCATION:' .BASE_URL);
             } else {
-                $this->view->renderLogin("Usiario o contraseña invalido.");
+                $this->view->renderLogin("Usuario o contraseña invalido.");
             }
         }
     }

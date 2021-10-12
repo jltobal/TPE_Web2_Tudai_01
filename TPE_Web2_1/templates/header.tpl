@@ -14,8 +14,17 @@
       <a href='home'>home</a>
       <a href='modelos'>Lista completa</a>
       <a href='registrar'>Registrarse</a>  {*Hacer formulario de Registro*}
+      
+
+      <script> console.log($_SESSION['USER_ID']); </script>
+
+     {if isset($smarty.session.USER_ID)}
+      <a href='administrar'>Administrar({$smarty.session.USER_EMAIL})</a> {*Hacer formulario de administracion*}
+      <a href='logout'>Logout</a>
+      {else}
       <a href='login'>LogIn</a>  {*Hacer formulario de login y persistencia*}
-      <a href='administrar'>Administrar<a> {*Hacer formulario de administracion*}
+      {/if}
+      
   </nav>
 
   <h2> MUNDO IMPRESORAS </h2><br>

@@ -27,19 +27,26 @@ class model
         return $allPrinters;
     }
     
-    function getPtinterByFilter($filtro){        
+    function getPrinterByFilter($filtro){ 
+           
+        $query = $this->db_impresoras->prepare('SELECT * FROM impresora WHERE tipo=?');
+        $query->execute([$filtro]);
+        $impresoras = $query->fetch(PDO::FETCH_OBJ);
+        var_dump($impresoras);
+        return $impresoras;
+
     }
 
 
     function getUser($email) {
-        $query = $this->db->prepare('SELECT * FROM usuarios WHERE email = ?'); //Busco user en la BDD.
+        $query = $this->db_impresoras->prepare('SELECT * FROM usuarios WHERE email = ?'); //Busco user en la BDD.
         $query->execute([$email]);
         $user = $query->fetch(PDO::FETCH_OBJ);
         return $user;
       }
 
     function registerUser($userEmail,$userPassword){
-        $query = $this->db->prepare('INSERT INTO usuarios (email, password) VALUES (? , ?)');  //Guardo en la BDD.
+        $query = $this->db_impresoras->prepare('INSERT INTO usuarios (email, password) VALUES (? , ?)');  //Guardo en la BDD.
         $query->execute([$userEmail,$userPassword]);
         echo "Registro exitoso";
     }

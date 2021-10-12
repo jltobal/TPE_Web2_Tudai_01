@@ -32,10 +32,10 @@ class view
         $this->smarty->display('templates/detalles.tpl');
     }
 
-    public function renderFilter($filtro)
+    public function renderFilter($impresoras)
     {
         $this->smarty->assign('titulo', 'Filtrar');
-     #   $this->smarty->assign('impresora', $impresoras);
+        $this->smarty->assign('impresora', $impresoras);
         $this->smarty->display('templates/filtrar.tpl');
     }
 
@@ -51,7 +51,7 @@ class view
         
     }
 
-    public function renderLogin($error){
+    public function renderLogin($error=null){
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/login.tpl');
     }

@@ -7,17 +7,20 @@
 <form>
     <div class="form-group">
         <label>Sistema</label>
-            <select name="select" id="selectMetodo">
-                <option value='laser'>Laser</option>
-                <option value='Tinta'>Tinta</option>
-                <option value='mpunto'>Matriz de punto</option>
+            <select name="select" id="selectMetodo" placeholder="seleccione metodo">
+                <option value='Laser monocromo'>Laser</option>
+                <option value='Color'>Tinta</option>
+                <option value='Tinta color'>Matriz de punto</option>
                 <option value='portable'>Portatiles</option>
                 <option value='fiscal'>Fiscales</option>
+    </form>
    </select>
 
     </div>
     
-    <button type="submit" class="btn_printer_type">Seleccionar</button>
-    </form>
+
+    <div id="ajax-contenedor">
+    
+    </div>
 
 {include file = 'footer.tpl'}

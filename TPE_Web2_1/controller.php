@@ -1,15 +1,19 @@
 <?php
 
+require_once 'authhelper.php';
+
 class controller
 {
 
     private $model;
     private $view;
+    private $authHelper;
 
     public function __construct()
     {
         $this->view = new view();   //al atributo le instacio la clase View del View.php
         $this->model = new model();
+        $this->authHelper = new AuthHelper();
     }
 
     function showHome()
@@ -26,18 +30,19 @@ class controller
 
     function showDetails($id)
     {
-        $detalles = $this->model->getPtinterByID($id); //llamo por id a la db.
+        $detalles = $this->model->getPrinterByID($id); //llamo por id a la db.
         $this->view->renderDetails($detalles);          //tipo, modelo, dpi, toner, tinta.
     }
 
     function showFilter($filtro)
     {
-        $impresoras = $this->model->getPtinterByFilter($filtro); //llamo por x filtro.
+        $impresoras = $this->model->getPrinterByFilter($filtro); //llamo por x filtro.
         $this->view->renderFilter($impresoras);               //quiero impresoras laser color.
     }
 
     function showAdmin()
     {
+        $this->authHelper->checkLoggedIn();
         $impresoras = $this->model->getAllPrinters();
         $this->view->renderAdmin($impresoras);                 //agregar, borrar, editar.
     }

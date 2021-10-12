@@ -15,7 +15,6 @@ if (!empty($_GET['action'])) {
 }
 
 $params = explode('/', $action);
-$authController = new AuthController();
 $controlador = new controller(); //creo un objeto o instacia de la clase Controller
 
 switch ($params[0]) {
@@ -32,25 +31,26 @@ switch ($params[0]) {
         $controlador->showFilter($params[1]);  //filtrar por categoria
         break;
     case 'login':
-        $authController = new AuthController();  //Ok.- Probar funcionalidad
+        $authController = new AuthController();  //Ok.- 
         $authController->showLogin();
         break;
     case 'verify':
-        $authController = new AuthController();
+        $authController = new AuthController();  //Ok.-
         $authController->login();
         break;
     case 'logout':
-        $authController = new AuthController();
+        $authController = new AuthController();  //Ok.-
         $authController->showLogout();
         break;
     case 'registrar':
-        $controlador->showRegister();  //ok
+        $controlador->showRegister();  //Ok.-
         break;
     case 'categorias':
         $controlador->showCategorias();  //En modelos
         break;
     case 'administrar':
-        $controlador->showAdmin();  //Administracion (Agregar, eliminar, editar, etc.) //Solo view
+        $authController = new AuthController();
+        $controlador->showAdmin();  //Administracion (Agregar, eliminar, editar, etc.) //Solo view  //Anda la sesion
         break;
     case 'agregar':
         $controlador->addPrinter();  //En admin

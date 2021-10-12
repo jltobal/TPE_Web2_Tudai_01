@@ -41,9 +41,12 @@ class view
 
     public function renderAdmin()
     {
+        $this->smarty->assign('titulo', 'Administrar');
+        $this->smarty->display('templates/administrar.tpl');
     }
 
     public function renderRegister(){
+        $this->smarty->assign('titulo', 'Registrar');
         $this->smarty->display('templates/registrar.tpl');
         
     }

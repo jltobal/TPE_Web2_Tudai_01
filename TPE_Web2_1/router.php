@@ -20,19 +20,19 @@ $controlador = new controller(); //creo un objeto o instacia de la clase Control
 
 switch ($params[0]) {
     case 'home':
-        $controlador->showHome(); //mostramos 6.
+        $controlador->showHome(); //mostramos 6.    Ok.
         break;
     case 'modelos':
-        $controlador->showModels();  //mostrar todo.
+        $controlador->showModels();  //mostrar todo.   Ok.
         break;
     case 'detalle':
-        $controlador->showDetails($params[1]);  //muestra descripcion.
+        $controlador->showDetails($params[1]);  //muestra descripcion.    Ok.
         break;
     case 'filtrar':
         $controlador->showFilter($params[1]);  //filtrar por categoria
         break;
     case 'login':
-        $authController = new AuthController();
+        $authController = new AuthController();  //Ok.- Probar funcionalidad
         $authController->showLogin();
         break;
     case 'verify':
@@ -44,19 +44,22 @@ switch ($params[0]) {
         $authController->showLogout();
         break;
     case 'registrar':
-        $controlador->showRegister();
+        $controlador->showRegister();  //ok
         break;
     case 'categorias':
-        $controlador->showCategorias();
+        $controlador->showCategorias();  //En modelos
         break;
     case 'administrar':
-        $controlador->showAdmin();  //Administracion (Agregar, eliminar, editar, etc.)
+        $controlador->showAdmin();  //Administracion (Agregar, eliminar, editar, etc.) //Solo view
         break;
     case 'agregar':
-        $controlador->addPrinter();
+        $controlador->addPrinter();  //En admin
         break;
     case 'eliminar':
-        $controlador->deletePrinter();
+        $controlador->deletePrinter();  //En admin
+        break;
+    case 'editar':
+        $controlador->editPrinter();  //En admin
         break;
     default:
         $controlador->showHome();  //Por defecto va al Home.

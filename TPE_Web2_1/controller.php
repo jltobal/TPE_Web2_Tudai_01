@@ -38,14 +38,14 @@ class controller
 
     function showAdmin()
     {
-        $impresoras = $this->model->getAllPrinters('Null');
+        $impresoras = $this->model->getAllPrinters();
         $this->view->renderAdmin($impresoras);                 //agregar, borrar, editar.
     }
 
     function showRegister()
     {
         $this->view->renderRegister();
-        if (!empty($_POST['email']) && !empty($_POST['password'])) {
+        if (!empty($_POST['email']) && !empty($_POST['password'])) {  //Verifico si los campos estan vacios o no.
             $userEmail = $_POST['email'];
             $userPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $this->model->registerUser($userEmail, $userPassword);
@@ -54,14 +54,17 @@ class controller
 
     function showCategorias()
     {
-
     }
 
-    function addPrinter(){
-
+    function addPrinter()
+    {
     }
 
-    function deletePrinter(){
-        
+    function deletePrinter()
+    {
+    }
+
+    function editPrinter()
+    {
     }
 }

@@ -28,7 +28,10 @@ switch ($params[0]) {
         $controlador->showDetails($params[1]);  //muestra descripcion.    Ok.
         break;
     case 'filtrar':
-        $controlador->showFilter($params[1]);  //filtrar por categoria
+        $controlador->showFilter();  //filtrar por categoria (Anda el llamado, no imprime)
+        break;
+    case 'filtrado':
+        $controlador->showFiltrado($params[1]);
         break;
     case 'login':
         $authController = new AuthController();  //Ok.- 

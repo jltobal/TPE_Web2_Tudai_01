@@ -34,10 +34,14 @@ class controller
         $this->view->renderDetails($detalles);          //tipo, modelo, dpi, toner, tinta.
     }
 
-    function showFilter($filtro)
+    function showFilter()
     {
-        $impresoras = $this->model->getPrinterByFilter($filtro); //llamo por x filtro.
-        $this->view->renderFilter($impresoras);               //quiero impresoras laser color.
+        $impresoras = $this->model->getAllPrinters();
+        $this->view->renderFilter($impresoras);         //quiero impresoras laser color.
+    }
+    function showFiltrado($filtro){
+        $impresoras = $this->model->getAllPrinters();
+        $this->view->renderFiltrado($impresoras, $filtro);
     }
 
     function showAdmin()

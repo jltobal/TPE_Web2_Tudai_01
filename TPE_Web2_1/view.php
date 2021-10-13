@@ -38,6 +38,12 @@ class view
         $this->smarty->assign('impresora', $impresoras);
         $this->smarty->display('templates/filtrar.tpl');
     }
+    public function renderFiltrado($impresoras, $filtro){
+        $this->smarty->assign('titulo', 'Filtrar');
+        $this->smarty->assign('impresora', $impresoras);
+        $this->smarty->assign('filtro', $filtro);
+        $this->smarty->display('templates/filtrado.tpl');
+    }
 
     public function renderAdmin()
     {

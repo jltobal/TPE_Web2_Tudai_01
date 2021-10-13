@@ -11,9 +11,9 @@ class model
         //Llama al servidor y me crea un objeto con la respuesta.
     }
 
-    function getPtinterByID($parametro)
+    function getPrinterByID($parametro)
     {
-        $query = $this->db_impresoras->prepare('SELECT * FROM impresora WHERE id_impresora=?');
+        $query = $this->db_impresoras->prepare('SELECT * FROM impresoras WHERE id_impresora=?');
         $query->execute([$parametro]);
         $impresoras = $query->fetchAll(PDO::FETCH_OBJ);
         return $impresoras;
@@ -21,7 +21,7 @@ class model
 
     function getAllPrinters()
     {
-        $query = $this->db_impresoras->prepare('SELECT * FROM impresora JOIN modelo ON impresora.id_modelo_fk=modelo.id_modelo');
+        $query = $this->db_impresoras->prepare('SELECT * FROM impresoras JOIN metodos ON impresoras.id_metodo_fk=metodos.id_metodo');
         $query->execute();
         $allPrinters = $query->fetchAll(PDO::FETCH_OBJ); // obtengo un arreglo con TODAS las impresoras.
         return $allPrinters;
@@ -29,7 +29,7 @@ class model
     
     function getPrinterByFilter($filtro){ 
            
-        $query = $this->db_impresoras->prepare('SELECT * FROM impresora WHERE tipo=?');
+        $query = $this->db_impresoras->prepare('SELECT * FROM metodos WHERE metodo=?');
         $query->execute([$filtro]);
         $impresoras = $query->fetch(PDO::FETCH_OBJ);
         var_dump($impresoras);

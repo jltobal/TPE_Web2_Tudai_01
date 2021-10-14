@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-13 01:52:02
+/* Smarty version 3.1.39, created on 2021-10-15 01:28:23
   from 'C:\xampp\htdocs\proyectos\WEB-2\PHP\TP_Especial_1\TPE_Web2_1\templates\detalles.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61661fa2c26693_48731263',
+  'unifunc' => 'content_6168bd17ce46f2_87691193',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bd106420aacdd88a07cba5e789370c3c0a1c0d5d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\WEB-2\\PHP\\TP_Especial_1\\TPE_Web2_1\\templates\\detalles.tpl',
-      1 => 1634082721,
+      1 => 1634254009,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_61661fa2c26693_48731263 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6168bd17ce46f2_87691193 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -49,6 +49,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
  </tbody>   
  </table>
+
+ <div id="ajax-contenedor">
+    
+    </div>
 
 <?php $_smarty_tpl->_subTemplateRender('file:footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }

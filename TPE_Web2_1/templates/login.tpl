@@ -3,6 +3,8 @@
 
 
 <h2>Login</h2>
+
+<div class="formulario">
 <form method="POST" class="row g-3" action="verify">
     <div class="col-auto">
         <input type="text" name="email" class="form-control" id="" placeholder="Ingrese su email...">
@@ -14,6 +16,7 @@
         <button type="submit" class="btn btn-primary mb-3">Login</button>
     </div>
 </form>
+</div>
 
 {if $error}
     <div class="alert alert-danger mt-3">

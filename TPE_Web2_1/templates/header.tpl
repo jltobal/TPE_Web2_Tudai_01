@@ -7,24 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
   <nav>
-      <a href='home'>home</a>
-      <a href='modelos'>Lista completa</a>
-      <a href='registrar'>Registrarse</a>  {*Hacer formulario de Registro*}
+      <a href='home'>Home</a>
+      <a href='filtrar'>Categorias</a>
+      <a href='registrar'>Registrarse</a>
       
 
       <script> console.log($_SESSION['USER_ID']); </script>
 
      {if isset($smarty.session.USER_ID)}
-      <a href='administrar'>Administrar({$smarty.session.USER_EMAIL})</a> {*Hacer formulario de administracion*}
+      <a href='administrar'>Administrar({$smarty.session.USER_EMAIL})</a>
       <a href='logout'>Logout</a>
       {else}
-      <a href='login'>LogIn</a>  {*Hacer formulario de login y persistencia*}
+      <a href='login'>LogIn</a>
       {/if}
       
   </nav>
-
+<br>
   <h2> MUNDO IMPRESORAS </h2><br>

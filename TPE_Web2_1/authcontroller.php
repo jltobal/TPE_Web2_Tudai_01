@@ -24,7 +24,7 @@ class AuthController
 
     public function showLogout()
     {
-        $this->authHelper->logout();
+        $this->authHelper->logout();        
     }
 
     public function login()

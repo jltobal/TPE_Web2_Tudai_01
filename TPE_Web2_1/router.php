@@ -63,6 +63,13 @@ switch ($params[0]) {
     case 'editar_metodo':
         $controlador->editMetodo();  //En admin
         break;
+        /*--------- Administrar Impresoras -------------*/
+    case 'agregar_impresora':
+        $controlador->agregarImpresora();  //En admin
+        break;
+    case 'editar_impresora':
+        $controlador->editarImpresora();
+        break;
     default:
         $controlador->showHome();  //Por defecto va al Home.
         break;

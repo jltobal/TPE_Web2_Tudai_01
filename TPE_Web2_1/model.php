@@ -79,4 +79,14 @@ class model
         $query = $this->db_impresoras->prepare('UPDATE metodos SET metodo=? WHERE id_metodo=?');
         $query->execute([$newMetodo, $id]);
     }
+
+    function createImpresora($marca, $modelo, $descripcion, $metodo){
+        $query = $this->db_impresoras->prepare('INSERT INTO impresoras (modelo, marca, descripcion, id_metodo_fk) VALUES (?,?,?,?)');
+        $query->execute([$modelo, $marca, $descripcion, $metodo]);
+    }
+
+    function editImpresora($id_impresora, $marca, $modelo, $descripcion, $metodo){
+        $query = $this->db_impresoras->prepare('UPDATE impresoras SET modelo=?, marca=?, descripcion=?, id_metodo_fk=? WHERE id_impresora=?');
+        $query->execute([$modelo, $marca, $descripcion, $metodo, $id_impresora]);
+    }
 }

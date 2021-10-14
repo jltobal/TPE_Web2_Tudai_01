@@ -54,10 +54,11 @@ class controller
     }
     function editMetodo()
     {
+        var_dump($_REQUEST); 
         $id = $_POST['id_metodo'];
         $newMetodo = $_POST['input_metodo'];
         $this->model->editarMetodo($id, $newMetodo);
-        $this->view->refreshAdmin();
+        $this->view->refreshAdmin(); 
     }
     function deleteMetodo($id)
     {
@@ -87,5 +88,33 @@ class controller
             $userPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $this->model->registerUser($userEmail, $userPassword);
         }
+    }
+
+    /*---------------- Administrar Impresoras ------------------- */
+
+    function agregarImpresora()
+    {
+        $marca = $_REQUEST['marca'];
+        $modelo = $_REQUEST['modelo'];
+        $descripcion = $_REQUEST['descripcion'];
+        $metodo = $_REQUEST['select_metodo'];
+        $this->model->createImpresora($marca, $modelo, $descripcion, $metodo);
+        $this->view->refreshAdmin();
+    }
+
+    function editarImpresora(){
+        $id_impresora = $_REQUEST['id_impresora'];
+        $marca = $_REQUEST['marca'];
+        $modelo = $_REQUEST['modelo'];
+        $descripcion = $_REQUEST['descripcion'];
+        $metodo = $_REQUEST['select_metodo'];
+     #   var_dump($_REQUEST);
+        $this->model->editImpresora($id_impresora, $marca, $modelo, $descripcion, $metodo);
+        $this->view->refreshAdmin();
+
+    }
+
+    function deleteImpresora(){
+
     }
 }

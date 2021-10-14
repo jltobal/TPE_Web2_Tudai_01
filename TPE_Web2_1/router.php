@@ -7,6 +7,8 @@ require_once 'view.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 define('LOGIN', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/login');
+define('ADMINISTRAR', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/administrar');
+
 
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
@@ -48,21 +50,18 @@ switch ($params[0]) {
     case 'registrar':
         $controlador->showRegister();  //Ok.-
         break;
-    case 'categorias':
-        $controlador->showCategorias();  //En modelos
-        break;
     case 'administrar':
         $authController = new AuthController();
         $controlador->showAdmin();  //Administracion (Agregar, eliminar, editar, etc.) //Solo view  //Anda la sesion
         break;
-    case 'agregar':
-        $controlador->addPrinter();  //En admin
+    case 'agregar_metodo':
+        $controlador->agregarMetodo();  //En admin
         break;
-    case 'eliminar':
-        $controlador->deletePrinter();  //En admin
+    case 'eliminar_metodo':
+        $controlador->deleteMetodo($params[1]);  //En admin
         break;
-    case 'editar':
-        $controlador->editPrinter();  //En admin
+    case 'editar_metodo':
+        $controlador->editMetodo();  //En admin
         break;
     default:
         $controlador->showHome();  //Por defecto va al Home.

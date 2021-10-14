@@ -1,6 +1,41 @@
 {include file = 'header.tpl'}
 
-<h3>Administrar impresoras</h3>
+<h3>Administrar Metodos</h3>
+
+<div>
+    <form method="POST" action="agregar_metodo">
+        <label>Ingrese metodo a ingresar o editar</label>
+        <input type="text" name="input_metodo">
+        <button type="submit">Agregar</button>
+
+        
+    </form>
+    <form method="POST" action='editar_metodo'>    
+        <table  class="list">
+                    <tbody>
+                        {foreach from=$metodo item=$info} 
+                            <tr>                            
+                                <td><input type="text" name="id_metodo"  style="width : 50px"  value={$info->id_metodo} readonly></td>
+                                <td><input type="text" name="input_metodo"  style="width : 300px"  value={$info->metodo}></td>
+                                <td><a href="eliminar_metodo/{$info->id_metodo}">Eliminar</a></td>
+                                <td> <button type="submit">EDITAR</button> </td>                             
+                            </tr>
+                        {/foreach}
+                    </tbody> 
+        </table> 
+    </form>
+    
+        
+ </div>
+
+<h3>Administrar Impresoras</h3>
+
+
+<div>Aca agregamos impresoras (Agregar)
+        <div> editar, borrar </div>
+</div>
+
+
 
 <form>
 <label>Marca</label>
@@ -14,22 +49,6 @@
  <a href="agregar/{$info->id_impresora}">Agregar</a>
 
 
-<table  class="list">
-<tbody>
 
-{foreach from=$impresora item=$info} 
-    <tr>
-        <td>{$info->tipo}</td>
-        <td>{$info->modelo}</td>
-        <td>{$info->Marca}</td>
-        <td>{$info->descripcion}</td>
-        <td><a href="editar/{$info->id_impresora}">Editar</a></td>
-        <td><a href="eliminar/{$info->id_impresora}">Eliminar</a></td>
-
-    </tr>
-{/foreach}
-
- </tbody>   
- </table>
 
 {include file = 'footer.tpl'}

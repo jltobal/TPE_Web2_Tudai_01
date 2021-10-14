@@ -32,10 +32,10 @@ class view
         $this->smarty->display('templates/detalles.tpl');
     }
 
-    public function renderFilter($impresoras)
+    public function renderFilter($Metodos)
     {
         $this->smarty->assign('titulo', 'Filtrar');
-        $this->smarty->assign('impresora', $impresoras);
+        $this->smarty->assign('metodo', $Metodos);
         $this->smarty->display('templates/filtrar.tpl');
     }
     public function renderFiltrado($impresoras, $filtro){
@@ -45,9 +45,11 @@ class view
         $this->smarty->display('templates/filtrado.tpl');
     }
 
-    public function renderAdmin()
+    public function renderAdmin($impresoras, $metodos)
     {
         $this->smarty->assign('titulo', 'Administrar');
+        $this->smarty->assign('impresora', $impresoras);
+        $this->smarty->assign('metodo', $metodos);
         $this->smarty->display('templates/administrar.tpl');
     }
 
@@ -62,7 +64,12 @@ class view
         $this->smarty->display('templates/login.tpl');
     }
 
-    public function renderLogout(){
-        
+
+    public function refreshAdmin(){
+        header('Location: '. BASE_URL .'administrar');
+    }
+
+    public function test(){
+        $this->smarty->display('templates/metodo.tpl');
     }
 }

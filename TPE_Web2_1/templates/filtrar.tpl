@@ -7,9 +7,9 @@
 <form>
     <div class="form-group">
         <label>Sistema</label>
-            <select name="select" id="selectMetodo" placeholder="seleccione metodo">
-              
-              {foreach from=$impresora item=$info}               
+            <select name="select" id="selectMetodo">
+              <option disable>Elegir un metodo...</option>
+              {foreach from=$metodo item=$info}               
               <option name="{$info->metodo}">{$info->metodo}</option>
               {/foreach}
 

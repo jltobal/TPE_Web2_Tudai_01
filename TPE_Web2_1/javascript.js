@@ -1,6 +1,6 @@
 let select = document.querySelector("#selectMetodo");
 select.addEventListener("change", seleccionarMetodo);
-
+let btn_E_metodo = document.querySelectorAll(".btn_edit_metodo");
 
 
 

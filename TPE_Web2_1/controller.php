@@ -36,21 +36,49 @@ class controller
 
     function showFilter()
     {
-        $impresoras = $this->model->getAllPrinters();
-        $this->view->renderFilter($impresoras);         //quiero impresoras laser color.
+        $Metodos = $this->model->getAllMetodos();
+        $this->view->renderFilter($Metodos);         //quiero impresoras laser color.
     }
-    function showFiltrado($filtro){
+    function showFiltrado($filtro)
+    {
         $impresoras = $this->model->getAllPrinters();
         $this->view->renderFiltrado($impresoras, $filtro);
     }
+
+
+    /* --------- Administracion de Metodos ----------*/
+    function agregarMetodo()
+    {
+        $this->model->createMetodo();
+        $this->view->refreshAdmin();
+    }
+    function editMetodo()
+    {
+        $id = $_POST['id_metodo'];
+        $newMetodo = $_POST['input_metodo'];
+        $this->model->editarMetodo($id, $newMetodo);
+        $this->view->refreshAdmin();
+    }
+    function deleteMetodo($id)
+    {
+        $ImpresoraID = $this->model->getPrinterByMetodo($id); //llamo por id a la db.
+        if (!empty($ImpresoraID)) {
+            $this->view->refreshAdmin();
+        } else {
+            $this->model->deleteMetodoByID($id); //llamo por id a la db.
+            $this->view->refreshAdmin();
+        }
+    }
+
+    /*------------  Registro y Vista Admin ----------*/
 
     function showAdmin()
     {
         $this->authHelper->checkLoggedIn();
         $impresoras = $this->model->getAllPrinters();
-        $this->view->renderAdmin($impresoras);                 //agregar, borrar, editar.
+        $metodos = $this->model->getAllMetodos();
+        $this->view->renderAdmin($impresoras, $metodos);                 //agregar, borrar, editar.
     }
-
     function showRegister()
     {
         $this->view->renderRegister();
@@ -59,21 +87,5 @@ class controller
             $userPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $this->model->registerUser($userEmail, $userPassword);
         }
-    }
-
-    function showCategorias()
-    {
-    }
-
-    function addPrinter()
-    {
-    }
-
-    function deletePrinter()
-    {
-    }
-
-    function editPrinter()
-    {
     }
 }

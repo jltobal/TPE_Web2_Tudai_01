@@ -27,6 +27,14 @@ class model
         return $allPrinters;
     }
     
+    function getAllMetodos()
+    {
+        $query = $this->db_impresoras->prepare('SELECT * FROM metodos');
+        $query->execute();
+        $allMetodos= $query->fetchAll(PDO::FETCH_OBJ); // obtengo un arreglo con TODAS las impresoras.
+        return $allMetodos;
+    }
+
     function getPrinterByFilter($filtro){ 
            
         $query = $this->db_impresoras->prepare('SELECT * FROM metodos WHERE metodo=?');
@@ -34,9 +42,7 @@ class model
         $impresoras = $query->fetch(PDO::FETCH_OBJ);
         var_dump($impresoras);
         return $impresoras;
-
     }
-
 
     function getUser($email) {
         $query = $this->db_impresoras->prepare('SELECT * FROM usuarios WHERE email = ?'); //Busco user en la BDD.
@@ -51,4 +57,26 @@ class model
         echo "Registro exitoso";
     }
     
+    function deleteMetodoByID($id){
+        $query = $this->db_impresoras->prepare('DELETE FROM metodos WHERE id_metodo= ?');
+        $query->execute([$id]);
+    }
+
+    function getPrinterByMetodo($id){
+        $query = $this->db_impresoras->prepare('SELECT * FROM impresoras WHERE impresoras.id_metodo_fk=?');
+        $query->execute([$id]);
+        $printerByMetodo = $query->fetch(PDO::FETCH_OBJ);
+        return $printerByMetodo;
+    }
+
+    function createMetodo(){
+        $newMetodo = $_POST['input_metodo'];
+        $query = $this->db_impresoras->prepare('INSERT INTO metodos (id_metodo, metodo) VALUES (?,?)');
+        $query->execute(['', $newMetodo]);
+    }
+
+    function editarMetodo($id, $newMetodo){
+        $query = $this->db_impresoras->prepare('UPDATE metodos SET metodo=? WHERE id_metodo=?');
+        $query->execute([$newMetodo, $id]);
+    }
 }

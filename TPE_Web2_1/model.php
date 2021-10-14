@@ -89,4 +89,9 @@ class model
         $query = $this->db_impresoras->prepare('UPDATE impresoras SET modelo=?, marca=?, descripcion=?, id_metodo_fk=? WHERE id_impresora=?');
         $query->execute([$modelo, $marca, $descripcion, $metodo, $id_impresora]);
     }
+
+    function deleteImpresoraByID($id){
+        $query = $this->db_impresoras->prepare('DELETE FROM impresoras WHERE id_impresora= ?');
+        $query->execute([$id]);
+    }
 }

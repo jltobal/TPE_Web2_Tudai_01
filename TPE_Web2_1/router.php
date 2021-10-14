@@ -70,6 +70,9 @@ switch ($params[0]) {
     case 'editar_impresora':
         $controlador->editarImpresora();
         break;
+        case 'eliminar_impresora':
+        $controlador->eliminarImpresora($params[1]);
+        break;
     default:
         $controlador->showHome();  //Por defecto va al Home.
         break;

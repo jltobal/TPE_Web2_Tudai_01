@@ -54,7 +54,6 @@ class controller
     }
     function editMetodo()
     {
-        var_dump($_REQUEST); 
         $id = $_POST['id_metodo'];
         $newMetodo = $_POST['input_metodo'];
         $this->model->editarMetodo($id, $newMetodo);
@@ -114,7 +113,9 @@ class controller
 
     }
 
-    function deleteImpresora(){
-
+    function eliminarImpresora($id){
+        var_dump($id); 
+        $this->model->deleteImpresoraByID($id);
+        $this->view->refreshAdmin(); 
     }
 }

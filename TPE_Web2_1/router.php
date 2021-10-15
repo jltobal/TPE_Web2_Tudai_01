@@ -9,8 +9,6 @@ require_once 'view.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 define('LOGIN', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/login');
-define('ADMINISTRAR', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/administrar');
-
 
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
@@ -25,13 +23,13 @@ $controladorImpresoras = new impresorasController();
 
 switch ($params[0]) {
     case 'home':
-        $controlador->showHome(); //mostramos 6.    Ok.
+        $controlador->showHome(); 
         break;
     case 'detalle':
-        $controlador->showDetails($params[1]);  //muestra descripcion.    Ok.
+        $controlador->showDetails($params[1]);  
         break;
     case 'filtrar':
-        $controlador->showFilter();  //filtrar por categoria (Anda el llamado, no imprime)
+        $controlador->showFilter();
         break;
     case 'filtrado':
         $controlador->showFiltrado($params[1]);

@@ -3,27 +3,27 @@
 <table  class="list">
 
 <tbody>
-<thead>
-    <tr>
-        <th >Modelo</th>
-        <th >Marca</th>
-        <th >Descripción</th>
-        <th >Método</th>
-        <th >Más información</th>
-    </tr>
-<thead>
+    <thead>
+        <tr>
+            <th >Modelo</th>
+            <th >Marca</th>
+            <th >Descripción</th>
+            <th >Método</th>
+            <th >Más información</th>
+        </tr>
+    <thead>
 
-{foreach from=$impresora item=$info} 
-    <tr>
-        <td>{$info->modelo}</td>
-        <td>{$info->marca}</td>
-        <td>{$info->descripcion}</td>
-        <td>{$info->metodo}</td>
-        <td><a id="detallar_impresora" href="detalle/{$info->id_impresora}" value={$info->id_impresora} >Detalles</a></td>
-    </tr>
-{/foreach}
+    {foreach from=$impresora item=$info} 
+        <tr>
+            <td>{$info->modelo}</td>
+            <td>{$info->marca}</td>
+            <td>{$info->descripcion}</td>
+            <td>{$info->metodo}</td>
+            <td><a href="detalle/{$info->id_impresora}"} >Detalles</a></td>
+        </tr>
+    {/foreach}
 
- </tbody>   
+    </tbody>   
  </table>
 
 {include file = 'footer.tpl'}

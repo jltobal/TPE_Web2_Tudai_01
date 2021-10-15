@@ -14,11 +14,11 @@
   <nav>
       <a href='home'>Home</a>
       <a href='filtrar'>Categorias</a>
-      <a href='registrar'>Registrarse</a>
      {if isset($smarty.session.USER_ID)}
       <a href='administrar'>Administrar({$smarty.session.USER_EMAIL})</a>
       <a href='logout'>Logout</a>
       {else}
+      <a href='registrar'>Registrarse</a>
       <a href='login'>LogIn</a>
       {/if}
       

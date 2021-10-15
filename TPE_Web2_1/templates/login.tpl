@@ -5,9 +5,9 @@
 <h2>Login</h2>
 
 <div class="formulario">
-<form method="POST" class="row g-3" action="verify">
+<form  method="POST" class="row g-3" action="verify">
     <div class="col-auto">
-        <input required="required" type="email" name="email" class="form-control" id="" placeholder="Ingrese su email...">
+        <input required="required" type="text" name="email" class="form-control" id="" placeholder="Ingrese su email...">
     </div>
     <div class="col-auto">
         <input required="required" type="password" name="password" class="form-control" id="" placeholder="Ingrese su password...">

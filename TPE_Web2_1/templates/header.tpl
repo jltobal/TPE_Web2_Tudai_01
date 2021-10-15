@@ -15,10 +15,6 @@
       <a href='home'>Home</a>
       <a href='filtrar'>Categorias</a>
       <a href='registrar'>Registrarse</a>
-      
-
-      <script> console.log($_SESSION['USER_ID']); </script>
-
      {if isset($smarty.session.USER_ID)}
       <a href='administrar'>Administrar({$smarty.session.USER_EMAIL})</a>
       <a href='logout'>Logout</a>

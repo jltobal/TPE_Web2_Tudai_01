@@ -26,7 +26,7 @@ switch ($params[0]) {
         $controlador->showHome(); 
         break;
     case 'detalle':
-        $controlador->showDetails($params[1]);  
+        $controlador->showDetails();  
         break;
     case 'filtrar':
         $controlador->showFilter();

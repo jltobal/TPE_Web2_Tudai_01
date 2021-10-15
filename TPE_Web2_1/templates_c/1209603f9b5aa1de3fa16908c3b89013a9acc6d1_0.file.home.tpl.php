@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-15 02:15:00
+/* Smarty version 3.1.39, created on 2021-10-15 04:23:47
   from 'C:\xampp\htdocs\proyectos\WEB-2\PHP\TP_Especial_1\TPE_Web2_1\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6168c804e19971_91915610',
+  'unifunc' => 'content_6168e633646a72_09975632',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1209603f9b5aa1de3fa16908c3b89013a9acc6d1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\WEB-2\\PHP\\TP_Especial_1\\TPE_Web2_1\\templates\\home.tpl',
-      1 => 1634256896,
+      1 => 1634264622,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6168c804e19971_91915610 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6168e633646a72_09975632 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -45,6 +45,7 @@ $_smarty_tpl->tpl_vars['info']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['info']->value) {
 $_smarty_tpl->tpl_vars['info']->do_else = false;
 ?> 
+    <form method="POST" action="detalle">
         <tr>
             <td><?php echo $_smarty_tpl->tpl_vars['info']->value->modelo;?>
 </td>
@@ -54,9 +55,11 @@ $_smarty_tpl->tpl_vars['info']->do_else = false;
 </td>
             <td><?php echo $_smarty_tpl->tpl_vars['info']->value->metodo;?>
 </td>
-            <td><a href="detalle/<?php echo $_smarty_tpl->tpl_vars['info']->value->id_impresora;?>
-" >Detalles</a></td>
+            <td><button type="submit">Detalles</button></td>
+            <td><input id="id_oculto" type="number" name="id" value=<?php echo $_smarty_tpl->tpl_vars['info']->value->id_impresora;?>
+></td> 
         </tr>
+    </form>
     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>

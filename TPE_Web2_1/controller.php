@@ -24,8 +24,9 @@ class controller
         $this->view->renderHome($allPrinters); //paso por parametro la canidad.
     }
 
-    function showDetails($id)
+    function showDetails()
     {
+        $id = $_REQUEST['id'];
         $detalles = $this->model->getPrinterByID($id);  //llamo por id a la db.
         $this->view->renderDetails($detalles);          //tipo, modelo, dpi, toner, tinta.
     }

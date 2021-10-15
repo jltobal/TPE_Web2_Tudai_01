@@ -14,13 +14,16 @@
     <thead>
 
     {foreach from=$impresora item=$info} 
+    <form method="POST" action="detalle">
         <tr>
             <td>{$info->modelo}</td>
             <td>{$info->marca}</td>
             <td>{$info->descripcion}</td>
             <td>{$info->metodo}</td>
-            <td><a href="detalle/{$info->id_impresora}" >Detalles</a></td>
+            <td><button type="submit">Detalles</button></td>
+            <td><input id="id_oculto" type="number" name="id" value={$info->id_impresora}></td> 
         </tr>
+    </form>
     {/foreach}
 
     </tbody>   

@@ -7,10 +7,10 @@
 <div class="formulario">
 <form method="POST" class="row g-3" action="verify">
     <div class="col-auto">
-        <input type="text" name="email" class="form-control" id="" placeholder="Ingrese su email...">
+        <input required="required" type="email" name="email" class="form-control" id="" placeholder="Ingrese su email...">
     </div>
     <div class="col-auto">
-        <input type="password" name="password" class="form-control" id="" placeholder="Ingrese su password...">
+        <input required="required" type="password" name="password" class="form-control" id="" placeholder="Ingrese su password...">
     </div>
     <div class="col-auto">
         <button type="submit" class="btn btn-primary mb-3">Login</button>

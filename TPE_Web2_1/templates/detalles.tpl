@@ -14,8 +14,4 @@
  </tbody>   
  </table>
 
- <div id="ajax-contenedor">
-    
-    </div>
-
 {include file = 'footer.tpl'}

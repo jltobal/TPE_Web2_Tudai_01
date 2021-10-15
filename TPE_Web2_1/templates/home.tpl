@@ -19,7 +19,7 @@
             <td>{$info->marca}</td>
             <td>{$info->descripcion}</td>
             <td>{$info->metodo}</td>
-            <td><a href="detalle/{$info->id_impresora}"} >Detalles</a></td>
+            <td><a href="detalle/{$info->id_impresora}" >Detalles</a></td>
         </tr>
     {/foreach}
 

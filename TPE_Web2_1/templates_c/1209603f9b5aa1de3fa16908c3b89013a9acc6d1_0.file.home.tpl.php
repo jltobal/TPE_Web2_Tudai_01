@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-15 01:57:27
+/* Smarty version 3.1.39, created on 2021-10-15 02:15:00
   from 'C:\xampp\htdocs\proyectos\WEB-2\PHP\TP_Especial_1\TPE_Web2_1\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6168c3e77cf8f7_60792903',
+  'unifunc' => 'content_6168c804e19971_91915610',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1209603f9b5aa1de3fa16908c3b89013a9acc6d1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\WEB-2\\PHP\\TP_Especial_1\\TPE_Web2_1\\templates\\home.tpl',
-      1 => 1634255842,
+      1 => 1634256896,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6168c3e77cf8f7_60792903 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6168c804e19971_91915610 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -55,7 +55,7 @@ $_smarty_tpl->tpl_vars['info']->do_else = false;
             <td><?php echo $_smarty_tpl->tpl_vars['info']->value->metodo;?>
 </td>
             <td><a href="detalle/<?php echo $_smarty_tpl->tpl_vars['info']->value->id_impresora;?>
-"} >Detalles</a></td>
+" >Detalles</a></td>
         </tr>
     <?php
 }

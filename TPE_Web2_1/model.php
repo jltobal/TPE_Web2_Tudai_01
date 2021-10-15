@@ -40,7 +40,6 @@ class model
         $query = $this->db_impresoras->prepare('SELECT * FROM metodos WHERE metodo=?');
         $query->execute([$filtro]);
         $impresoras = $query->fetch(PDO::FETCH_OBJ);
-        var_dump($impresoras);
         return $impresoras;
     }
 

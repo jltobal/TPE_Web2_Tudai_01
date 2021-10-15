@@ -31,14 +31,12 @@ class impresorasController
         $modelo = $_REQUEST['modelo'];
         $descripcion = $_REQUEST['descripcion'];
         $metodo = $_REQUEST['select_metodo'];
-        #   var_dump($_REQUEST);
         $this->model->editImpresora($id_impresora, $marca, $modelo, $descripcion, $metodo);
         $this->view->refreshAdmin();
     }
 
     function eliminarImpresora($id)
     {
-        var_dump($id);
         $this->model->deleteImpresoraByID($id);
         $this->view->refreshAdmin();
     }

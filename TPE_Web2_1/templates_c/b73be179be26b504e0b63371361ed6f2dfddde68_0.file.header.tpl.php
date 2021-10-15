@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-15 01:26:24
+/* Smarty version 3.1.39, created on 2021-10-15 02:12:03
   from 'C:\xampp\htdocs\proyectos\WEB-2\PHP\TP_Especial_1\TPE_Web2_1\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6168bca02aaea5_06493633',
+  'unifunc' => 'content_6168c753c9cba4_82832980',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b73be179be26b504e0b63371361ed6f2dfddde68' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\WEB-2\\PHP\\TP_Especial_1\\TPE_Web2_1\\templates\\header.tpl',
-      1 => 1634252536,
+      1 => 1634256565,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6168bca02aaea5_06493633 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6168c753c9cba4_82832980 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,12 +38,6 @@ function content_6168bca02aaea5_06493633 (Smarty_Internal_Template $_smarty_tpl)
       <a href='home'>Home</a>
       <a href='filtrar'>Categorias</a>
       <a href='registrar'>Registrarse</a>
-      
-
-      <?php echo '<script'; ?>
-> console.log($_SESSION['USER_ID']); <?php echo '</script'; ?>
->
-
      <?php if ((isset($_SESSION['USER_ID']))) {?>
       <a href='administrar'>Administrar(<?php echo $_SESSION['USER_EMAIL'];?>
 )</a>

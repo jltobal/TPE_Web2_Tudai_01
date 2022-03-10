@@ -1,0 +1,56 @@
+2. Analice y responda las siguientes preguntas:
+¿Porque piensa que se decidió implementar algunas de las necesidades como Servicios WEB? ¿Cuál es su ventaja? 
+¿Qué otros servicios web pensaría que pueden ser útiles en este sistema? De al menos dos ejemplos, defina los endpoints de cada uno y explique brevemente cual es su función y porque pueden ser útiles
+
+
+*Se decidio implementar los servicios web como una forma de apovechar una comunicacion entre sistemas para que tanto la
+clinica como el cliente (paciente) puedan facilitar las comunicaciones y tramites administrativos.
+*La ventaja de esta implementacion es, por ejemplo, que el paciente puede hacer consultas previas como por ejemplo:
+-Si hay turnos disponibles con determinado profesional
+-Si hay turnos disponibles sobre determinada especialidad
+-En que fecha saco su turno, asociado a su disponibles
+*Puede ser util ampliar los servicios ya establecidos agregando mutuales asociadas, tarifas e incluso incorporar 
+una autenticacion por TOKEN para hacer las consultas privadas para evitar que se filtre informacion sensible
+(nombre, DNI, dia y horario del turno).
+
+api/misturnos/DNI  - Endpoint para consulta de turno en base a un DNI.
+api/mutuales/profesional - Endpoint para consulta de profesionales que atienden por medio de una mutual definida.
+
+
+3. Explique brevemente las ventajas de usar:
+PDO
+Template Engines
+CSR (Client Side Rendering)
+
+*El PDO es una capa de abstraccion intermedia que permite que el codigo se defina una sola vez y este pueda ser 
+utilizado en cualquier base de datos. De esta manera la capa PDO se puede adaptar a distintos proyectos.
+
+*El Template Engine es una herramienta que se utiliza para separar la parte logica y la presentacion del contendio 
+en dos partes independientes del desarollo. esto permite que se facilite el trabajo, ya que se puede modificar y mantener
+con mayor facilidad. Ademas, evita que se hagan mezla de lenguajes como PHP y HTML.
+
+*El client Side Rendering es el metodo  en el cual la pagina es renderizada completamente por el browser del cliente. 
+El servidor envia un "paquete" con el contenido HTML inicial y los Javascript donde se define el renderizado de la pagina,
+completandose la vista final del lado del cliente.
+
+
+4. Explique el patrón de diseño MVC. Describa cada una de sus partes y las responsabilidades de las mismas.
+ Ventajas y desventajas del uso de este patrón. ¿En qué tipo de sistema no sería útil usar este patrón?
+
+
+ *MVC (Model View Controller) es un patron de arquitectura de software donde se establece una estructura
+ en donde se define sus componentes y su relacion entre ellos. Este divide porciones de codigo dependiendo
+ su funcion o logica. En el caso del MODELO es el componente que accede a los datos, haciendo llamados a la
+ base de datos, asegurando la integridad de los mismos. El CONTROLADOR controla y coordina la relacion entre 
+ el modelo  y la vista. Actua dependiendo las solicitudes que realiza el usuario con la interaccion de la pagina.
+ La VISTA presenta la informacion obtenida al usuario (Front-End).
+
+*La principal ventaja de este patron es que al tener el sistema desacoplado se puede trabajar en paralelo de 
+manera colavorativa (front-end y back-end) facilitando los tiempos del desarollo, mejorando la escabilidad del 
+proyecto y su mantenimiento. A su vez, su desventaja, es que aumenta la complejidad del desarollo, lo cual 
+facilita la aparicion de bugs o errores.
+
+No seria util utilizar este patron en desarollos donde no se aplica la necesidad de estos tres elementos.
+Por ejemplo, en el desarollo de alguna pagina simple donde no exista una base de datos y no sea necesario
+realizar consultas. Por ejemplo: una pagina de un comercio pequeño donde tenga las pestañas 'home', 'sobre nosotros'
+ y 'contacto'.
